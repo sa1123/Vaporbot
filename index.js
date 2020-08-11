@@ -37,7 +37,6 @@ client.on('message', msg => {
 	}
 });
 
-
 client.on('message', msg => {
 	if (msg.content === prefix + ('gt')) {
 		randomPuppy('greentext')
@@ -99,8 +98,18 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
+	if (msg.content === prefix + ('dl')) {
+		randomPuppy('dogelore')
+			.then(url => {
+				console.log(url);
+				msg.channel.send(url);
+			});
+	}
+});
+
+client.on('message', msg => {
 	if (msg.content === prefix + ('help')) {
-		msg.channel.send('The prefix is ">"\nUse md for a random meme straight outta ol` faithful\nhu for holdup\nhm for historymeme\ngt for greentext\nvw for vaporwave\ngcj for guitarcj\npepe for a rarepepe');
+		msg.channel.send('The prefix is ">"\nUse md for a random meme straight outta ol` faithful\nhu for holdup\nhm for historymeme\ngt for greentext\nvw for vaporwave\ngcj for guitarcj\npepe for a rarepepe\ndl for dogelore');
 	}
 });
 
